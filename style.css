@@ -1,0 +1,27 @@
+/* start contact list */
+
+#label {
+    display: none;
+}
+
+@media (max-width: 679.98px) {
+    #list {
+        margin-top: -200px;
+        transition: 0.8s;
+        flex-direction: column;
+        width: 100%;
+    }
+    #toggel:checked+#list {
+        margin-top: 47px;
+    }
+    #list>* {
+        border: solid 1px;
+    }
+    #label {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+
+/* end contact list */
