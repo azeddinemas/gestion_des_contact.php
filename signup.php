@@ -1,3 +1,18 @@
+
+<?php
+ require_once('Users.php');
+ if(isset($_POST['submit'])){
+    $compte = new User();
+    $compte->Set($_POST['name'],$_POST['password'],$_POST['email']);
+
+    if($compte->signup()){
+    header('location:login.php');
+    }
+
+ }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,31 +30,32 @@
         include 'header.php';
     ?>
     <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="max-width: 380px; margin-top: 90px; border-radius: 6px;">
-        <form class="">
+        <form class="" method="POST">
             <div class="text-center mb-5">
                 <h2>Sign up</h2>
             </div>
             <div class="mb-3">
                 <label class="form-label">User name</label>
-                <input type="text" class="form-control" placeholder="Entre votre nom">
+                <input type="text" name ="name" class="form-control" placeholder="Entre votre nom">
                 <span></span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email address</label>
-                <input type="email" class="form-control" placeholder="email@example.com">
+                <input type="email" name="email" class="form-control" placeholder="email@example.com">
                 <span></span>
             </div>
+          
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name ="password" class="form-control" placeholder="Password">
                 <span></span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Confirme Password</label>
-                <input type="password" class="form-control" placeholder="Confirme Password">
+                <input type="password" name ="cpass" class="form-control" placeholder="Confirme Password">
             </div>
             <div class="d-grid">
-                <input type="submit" class="btn text-white" style="background-color: #6C63FF;" value="Sign up">
+                <input type="submit" name="submit" class="btn text-white" style="background-color: #6C63FF;" value="Sign up">
             </div>
 
         </form>

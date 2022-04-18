@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php session_start();?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,18 +18,18 @@
         </a>
     </header>
     <div class="container-fluid mt-5">
-        <h1>Welcome, user !</h1>
+        <h1>Welcome, <?= $_SESSION['name'];?> !</h1>
         <div class="row p-1">
             <hr>
             <h2>Your profile :</h2>
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="p-1 text-white" style="background-color: cornflowerblue; border-radius: 10px;">
                     <hr>
-                    <h4>username : <span></span></h4>
+                    <h4>username : <span> <?= $_SESSION['name'];?></span></h4>
                     <hr>
-                    <h4>Signup date : <span></span></h4>
+                    <h4>Signup date : <span><?= $_SESSION['date'];?></span></h4>
                     <hr>
-                    <h4>Last login : <span></span></h4>
+                    <h4>Last login : <span><?=  $_SESSION['datelog'];?></span></h4>
                     <hr>
                 </div>
                 <hr>

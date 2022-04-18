@@ -1,3 +1,18 @@
+<?php
+    require_once 'Users.php';
+    if (isset($_POST['sub'])) {
+        $compte = new User();
+        $compte->Set($_POST['name'],$_POST['password'],"");
+        $compte-> login();
+
+
+        header("location:user.php");
+    }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +30,17 @@
         include 'header.php';
     ?>
     <div class="mx-auto rounded-3" style="max-width: 380px; margin-top: 110px;">
-        <form class="">
+        <form class="" method="POST">
             <div class="text-center mb-5">
                 <h2>log-in</h2>
             </div>
             <div class="mb-3">
                 <label for="exampleDropdownFormEmail1" class="form-label">User name</label>
-                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Entre votre nom">
+                <input type="text" name="name" class="form-control" id="exampleDropdownFormEmail1" placeholder="Entre votre nom">
             </div>
             <div class="mb-3">
                 <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
             </div>
             <div class="mb-3">
                 <div class="form-check">
@@ -34,7 +49,7 @@
                 </div>
             </div>
             <div class="d-grid">
-                <a href="user.php" class="btn text-white" style="background-color: #6C63FF;">Sign in</a>
+                <input type="submit" class="btn text-white" name="sub" value="Sign in" style="background-color: #6C63FF;">
             </div>
         </form>
         <div class="dropdown-divider"></div>

@@ -1,20 +1,4 @@
-<?php
-    include 'bd.php';
-
-    $bd = new Database();
-    if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
-        $sql = "INSERT INTO contact_list VALUES('','$name','$email','$phone','$address')";
-        $insert = $bd->inserted($sql);
-    }
-    $bd = new Database();
-    $q = "SELECT * FROM contact_list";
-    $red = $bd->select($q);
-
-?>
+<!--  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,26 +84,6 @@
         <div style="overflow-x: auto;">
             <table class="table table-hover">
                 <tbody class="">
-                    <?php
-                        while ($row = $red->fetch_assoc()) {
-                            $name = $row['name'];
-                            $email = $row['email'];
-                            $phone = $row['phone'];
-                            $address = $row['address'];
-                            $id = $row['id'];
-
-                            echo '<tr style="border-top: 10px solid #f8f9fa;">
-                                <td>
-                                    <h5>'.$name.'</h5>
-                                </td>
-                                <td>'.$email.'</td>
-                                <td>'.$phone.'</td>
-                                <td class="text-nowrap">'.$address.'</td>
-                                <td><a class="btn btn-primary" href="edit.php?id='.$id.'">Edit</a></td>
-                                <td><a class="btn btn-danger" href="#">Delete</a></td>
-                            </tr>';  
-                        }
-                    ?>
                 </tbody>
             </table>
         </div>
