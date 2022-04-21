@@ -1,21 +1,32 @@
+<?php
+    include('session.php');   
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start();?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
     
 </head>
 
 <body>
-    <header class="d-flex shadow-lg p-2">
-        <a href="index.php" class="nav-link">
-            <h2 class="text-nowrap"><i class="bi bi-file-person-fill"></i>&nbsp;<span class="text-dark">Contacts</span></h2>
-        </a>
+    <header class="d-flex justify-content-between shadow-lg p-2 rounded" style="color: #6C63FF;">
+        <h2 class="text-nowrap"><i class="bi bi-file-person-fill"></i>&nbsp;<span>Contacts</span></h2>
+        <input class="d-none" type="checkbox" name="" id="toggel">
+        <nav class="d-flex" id="list">
+            <a class="nav-link text-dark" href="#"><?= $_SESSION['name'];?></a>
+            <a class="nav-link text-dark" href="contactlist.php">Contacts</a>
+            <a class="nav-link text-dark" href="logout.php">Logout</a>
+        </nav>
+        <div id="label">
+            <label for="toggel" style="cursor: pointer;"><i class="bi bi-list fs-1"></i></label>
+        </div>
     </header>
     <div class="container-fluid mt-5">
         <h1>Welcome, <?= $_SESSION['name'];?> !</h1>
